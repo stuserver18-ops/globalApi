@@ -1,0 +1,214 @@
+2026-01-07 18:01:05,220 | ERROR | GET /api/ServerManagerUser/users | 1146 (42S02): Table 'server_management.users' doesn't exist
+Traceback (most recent call last):
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Table 'server_management.users' doesn't exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 18, in log_router_errors
+    yield
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 43, in get_users
+    rows = get("users", app_name=APP_NAME, limit=None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/crud.py", line 127, in get
+    return cast(List[Dict[str, Any]], fetch_all(query, params, app_name))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/db.py", line 34, in fetch_all
+    cursor.execute(query, params)
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/opentelemetry/context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'server_management.users' doesn't exist
+2026-01-07 18:03:46,384 | ERROR | GET /api/ServerManagerUser/users | 1146 (42S02): Table 'server_management.users' doesn't exist
+Traceback (most recent call last):
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Table 'server_management.users' doesn't exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 18, in log_router_errors
+    yield
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 59, in get_users
+    rows = get("users", app_name=APP_NAME, limit=None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/crud.py", line 127, in get
+    return cast(List[Dict[str, Any]], fetch_all(query, params, app_name))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/db.py", line 34, in fetch_all
+    cursor.execute(query, params)
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/opentelemetry/context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1146 (42S02): Table 'server_management.users' doesn't exist
+2026-01-07 18:05:54,934 | ERROR | POST /api/ServerManagerUser/users | name 'ROLES' is not defined
+Traceback (most recent call last):
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 18, in log_router_errors
+    yield
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 65, in create_user
+    if user.role.upper() not in ROLES:
+                                ^^^^^
+NameError: name 'ROLES' is not defined
+2026-01-07 18:05:56,175 | ERROR | POST /api/ServerManagerUser/users | name 'ROLES' is not defined
+Traceback (most recent call last):
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 18, in log_router_errors
+    yield
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 65, in create_user
+    if user.role.upper() not in ROLES:
+                                ^^^^^
+NameError: name 'ROLES' is not defined
+2026-01-07 18:07:18,611 | ERROR | POST /api/ServerManagerUser/users | 1054 (42S22): Unknown column 'password' in 'field list'
+Traceback (most recent call last):
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Unknown column 'password' in 'field list'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 18, in log_router_errors
+    yield
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 87, in create_user
+    user_id = add(
+              ^^^^
+  File "/home/sjeetoo/Desktop/globalApi/crud.py", line 28, in add
+    result = execute(query, values, app_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/db.py", line 48, in execute
+    cursor.execute(query, params)
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/opentelemetry/context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'password' in 'field list'
+2026-01-07 18:39:15,118 | ERROR | POST /api/ServerManagerUser/users | 1364 (HY000): Field 'id' doesn't have a default value
+Traceback (most recent call last):
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 18, in log_router_errors
+    yield
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 87, in create_user
+    user_id = add(
+              ^^^^
+  File "/home/sjeetoo/Desktop/globalApi/crud.py", line 28, in add
+    result = execute(query, values, app_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/db.py", line 48, in execute
+    cursor.execute(query, params)
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/opentelemetry/context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
+2026-01-07 18:40:30,414 | ERROR | POST /api/ServerManagerUser/users | 1364 (HY000): Field 'id' doesn't have a default value
+Traceback (most recent call last):
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 772, in cmd_query
+    self._cmysql.query(
+_mysql_connector.MySQLInterfaceError: Field 'id' doesn't have a default value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 18, in log_router_errors
+    yield
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/app/ServerManagementUser.py", line 87, in create_user
+    user_id = add(
+              ^^^^
+  File "/home/sjeetoo/Desktop/globalApi/crud.py", line 28, in add
+    result = execute(query, values, app_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/db.py", line 48, in execute
+    cursor.execute(query, params)
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/cursor_cext.py", line 353, in execute
+    self._connection.cmd_query(
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/opentelemetry/context_propagation.py", line 97, in wrapper
+    return method(cnx, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sjeetoo/Desktop/globalApi/venv/lib/python3.12/site-packages/mysql/connector/connection_cext.py", line 781, in cmd_query
+    raise get_mysql_exception(
+mysql.connector.errors.DatabaseError: 1364 (HY000): Field 'id' doesn't have a default value
