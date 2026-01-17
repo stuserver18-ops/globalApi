@@ -4,12 +4,12 @@ import zipfile
 from pathlib import Path
 from typing import List, Dict, Any, Generator
 from fastapi import HTTPException
-from .utils import resolve_safe_path, generate_zip_from_folder, ALLOWED_ROOTS
+from .utils import resolve_safe_path, generate_zip_from_folder
 
 # Helper function to determine which root a path belongs to
 def _get_current_root(full_path: Path) -> Path:
-    """Find which allowed root contains the given path"""
-    for root in ALLOWED_ROOTS:
+    from .allowed_root_crud import get_allowed_roots_as_paths  # ← add this import
+    for root in get_allowed_roots_as_paths():  # ← call function, not variable
         try:
             full_path.relative_to(root)
             return root

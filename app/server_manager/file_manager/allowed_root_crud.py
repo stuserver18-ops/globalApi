@@ -14,10 +14,16 @@ def normalize_path(path: str) -> str:
         raise ValueError(f"Invalid path: {path}") from e
 
 
-def create_allowed_root(path: str, description: Optional[str] = None) -> int:
-    """Add a new allowed root path."""
+def create_allowed_root(
+    path: str,
+    description: Optional[str] = None,
+    is_allowed: bool = True  # <-- new parameter
+) -> int:
     normalized = normalize_path(path)
-    data = {"path": normalized}
+    data = {
+        "path": normalized,
+        "is_allowed": is_allowed
+    }
     if description is not None:
         data["description"] = description
     return add(TABLE_NAME, data, app_name=APP_NAME)
@@ -34,15 +40,21 @@ def get_allowed_roots_as_paths() -> List[Path]:
     return [Path(rec["path"]).resolve() for rec in records]
 
 
-def update_allowed_root(root_id: int, path: Optional[str] = None, description: Optional[str] = None) -> int:
-    """Update an allowed root by ID."""
+def update_allowed_root(
+    root_id: int,
+    path: Optional[str] = None,
+    description: Optional[str] = None,
+    is_allowed: Optional[bool] = None  # <-- new parameter
+) -> int:
     data = {}
     if path is not None:
         data["path"] = normalize_path(path)
     if description is not None:
         data["description"] = description
+    if is_allowed is not None:
+        data["is_allowed"] = is_allowed
     if not data:
-        raise ValueError("At least one field (path or description) must be provided")
+        raise ValueError("At least one field must be provided")
     return update(TABLE_NAME, data, where="id = %s", params=(root_id,), app_name=APP_NAME)
 
 

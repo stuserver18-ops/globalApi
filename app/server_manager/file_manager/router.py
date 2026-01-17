@@ -1,6 +1,9 @@
 from fastapi import APIRouter, HTTPException, UploadFile, File
 from fastapi.responses import FileResponse, StreamingResponse
-from .schemas import RenamePayload, MoveCopyPayload
+from pydantic import BaseModel
+# MoveCopyPayload schema defined locally because .schemas does not expose it
+class MoveCopyPayload(BaseModel):
+    destination: str
 from .service import (
     list_items, create_folder, rename_item, delete_item,
     upload_file, upload_and_extract_zip,
@@ -9,6 +12,9 @@ from .service import (
 )
 from utils.router_logger import get_router_logger
 import logging
+
+class RenamePayload(BaseModel):
+    new_name: str
 
 router = APIRouter()
 logger = get_router_logger("fileManager")

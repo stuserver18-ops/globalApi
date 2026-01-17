@@ -5,12 +5,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.server_manager.port_manager.port_manager_crud import router as portManager_router
 from app.server_manager.server_management_user import router as ServerManagementUser_router
 from app.shared import router as shared_router
-from app.systemd.systemd import router as systemd_router
+from app.server_manager.systemd.systemd import router as systemd_router
 from app.server_manager.file_manager.router import router as filemanager_router  # ✅ NEW ROUTER
+from app.server_manager.file_manager.allowed_roots_router import router as allowed_roots_router  # ✅ NEW WS HANDLER
 
 # Import WebSocket handlers
 from app.server_manager import hardware_ws
-from app.systemd.systemd_ws import live_service_status, live_service_logs
+from app.server_manager.systemd.systemd_ws import live_service_status, live_service_logs
 
 
 app = FastAPI(title="Multi-App API")
@@ -29,7 +30,8 @@ app.include_router(portManager_router, prefix="/api/portManager", tags=["PortMan
 app.include_router(ServerManagementUser_router, prefix="/api/ServerManagerUser", tags=["ServerManagerUser"])
 app.include_router(shared_router, prefix="/api/shared", tags=["Shared"])
 app.include_router(systemd_router, prefix="/api/systemd", tags=["Systemd"])
-app.include_router(filemanager_router, prefix="/api/filemanager", tags=["Filemanager"])  # ✅ NEW ROUTER
+app.include_router(filemanager_router, prefix="/api/filemanager", tags=["Filemanager"])
+app.include_router(allowed_roots_router, prefix="/api/allowed_route", tags=["allowed_route"])
 
 # Hardware WebSocket endpoints
 @app.websocket("/hardware/cpu")
