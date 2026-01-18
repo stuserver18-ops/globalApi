@@ -19,7 +19,7 @@ jobs:
       # Step 2: Stop the service
       - name: Stop Service
         run: |
-          /usr/local/bin/pythonDeploy/stop_service.sh myapp
+          /usr/local/bin/pythonDeploy/stop_service.sh multiApi
 
       # Step 3: Update code
       - name: Update Code
