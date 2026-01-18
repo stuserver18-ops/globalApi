@@ -1,4 +1,4 @@
-#!/home/sjeetoo/Desktop/globalApi/venv/bin/python3
+#!/var/www/globalApi/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
