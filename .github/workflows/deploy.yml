@@ -24,29 +24,29 @@ jobs:
       # Step 3: Update code
       - name: Update Code
         run: |
-          /usr/local/bin/pythonDeploy/update_code.sh myapp main
+          /usr/local/bin/pythonDeploy/update_code.sh multiApi main
 
       # Step 4: Setup virtual environment
       - name: Setup Virtual Environment
         run: |
-          /usr/local/bin/pythonDeploy/venv_setup.sh myapp python3.12
+          /usr/local/bin/pythonDeploy/venv_setup.sh multiApi python3.12
 
       # Step 5: Install dependencies
       - name: Install Dependencies
         run: |
-          /usr/local/bin/pythonDeploy/install_deps.sh myapp
+          /usr/local/bin/pythonDeploy/install_deps.sh multiApi
 
       # Step 6: Run migrations
       - name: Run Migrations
         run: |
-          /usr/local/bin/pythonDeploy/run_migrations.sh myapp
+          /usr/local/bin/pythonDeploy/run_migrations.sh multiApi
 
       # Step 7: Cleanup
       - name: Cleanup Application
         run: |
-          /usr/local/bin/pythonDeploy/cleanup_app.sh myapp
+          /usr/local/bin/pythonDeploy/cleanup_app.sh multiApi
 
       # Step 8: Start the service
       - name: Start Service
         run: |
-          /usr/local/bin/pythonDeploy/start_service.sh myapp
+          /usr/local/bin/pythonDeploy/start_service.sh multiApi
