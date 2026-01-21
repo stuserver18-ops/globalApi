@@ -19,34 +19,34 @@ jobs:
       # Step 2: Stop the service
       - name: Stop Service
         run: |
-          /usr/local/bin/pythonDeploy/stop_service.sh multiApi
+          /usr/local/bin/pythonDeploy/stop_service.sh globalApi
 
       # Step 3: Update code
       - name: Update Code
         run: |
-          /usr/local/bin/pythonDeploy/update_code.sh multiApi main
+          /usr/local/bin/pythonDeploy/update_code.sh globalApi main
 
       # Step 4: Setup virtual environment
       - name: Setup Virtual Environment
         run: |
-          /usr/local/bin/pythonDeploy/venv_setup.sh multiApi python3.12
+          /usr/local/bin/pythonDeploy/venv_setup.sh globalApi python3.12
 
       # Step 5: Install dependencies
       - name: Install Dependencies
         run: |
-          /usr/local/bin/pythonDeploy/install_deps.sh multiApi
+          /usr/local/bin/pythonDeploy/install_deps.sh globalApi
 
       # Step 6: Run migrations
       - name: Run Migrations
         run: |
-          /usr/local/bin/pythonDeploy/run_migrations.sh multiApi
+          /usr/local/bin/pythonDeploy/run_migrations.sh globalApi
 
       # Step 7: Cleanup
       - name: Cleanup Application
         run: |
-          /usr/local/bin/pythonDeploy/cleanup_app.sh multiApi
+          /usr/local/bin/pythonDeploy/cleanup_app.sh globalApi
 
       # Step 8: Start the service
       - name: Start Service
         run: |
-          /usr/local/bin/pythonDeploy/start_service.sh multiApi
+          /usr/local/bin/pythonDeploy/start_service.sh globalApi
