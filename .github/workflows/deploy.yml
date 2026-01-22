@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy on Self-Hosted Runner
+    name: Deploy on Self-Hosted Runner 1
     runs-on: self-hosted
     steps:
 
